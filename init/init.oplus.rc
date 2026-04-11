@@ -41,6 +41,9 @@ on post-fs-data
     mkdir /data/system/camera_rus 0777 cameraserver  cameraserver
     chown system system /sys/kernel/ois_control/dump_registers
 
+on init
+    setprop vendor.powerhal.config powerhint_${ro.boot.product.vendor.sku}.json
+
 on property:ro.boot.prjname=*
     # Display
     setprop ro.separate.soft ${ro.boot.prjname}
